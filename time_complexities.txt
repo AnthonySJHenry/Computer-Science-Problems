@@ -1,0 +1,5 @@
+Task0 - O(1), possibly O(n)
+Task1 - O(n)
+Task2 - O(n)
+Task3 - O(n)
+Task4 - O(n)
