@@ -34,6 +34,8 @@ with open('calls.csv', 'r') as f:
 #subtract each set from the outbound calls set. Any remainders have not sent/received any texts and have not received any calls.
 possible_telemarketers = ((outbound_calls - inbound_calls) - outbound_texts) - inbound_texts
 
-print("These numbers could be telemarketers:\n" + str(list(possible_telemarketers)))
+print("These numbers could be telemarketers:")
 
+for suspected_telemarketer in list(sorted(possible_telemarketers)):
+    print(suspected_telemarketer)
 

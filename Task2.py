@@ -9,6 +9,7 @@ September 2016.".
 
 import csv
 phone_times = dict()
+
 with open('texts.csv', 'r') as f:
     reader = csv.reader(f)
     texts = list(reader)
@@ -17,11 +18,19 @@ with open('calls.csv', 'r') as f:
     reader = csv.reader(f)
     calls = list(reader)
     for call in calls: #phone number must be unique, or value must be larger than the one listed(which means the phone number must already be listed)
-        #call[0] => number
+        #call[0] => caller
+        #call[1] => answerer
         #call[3] => duration
-        if call[0] not in phone_times.keys() or (call[0] in phone_times.keys() and phone_times[call[0]] < call[3]):
-            phone_times[call[0]] = call[3]
-    
+        if call[0] not in phone_times.keys():
+            phone_times[call[0]] = int(call[3])
+        else:
+            phone_times[call[0]] += int(call[3])
+        
+        if call[1] not in phone_times.keys():
+            phone_times[call[1]] = int(call[3])
+        else:
+            phone_times[call[1]] += int(call[3])
+
 max_time = 0
 number_associated_with_max_time = str
 for number, time in phone_times.items():

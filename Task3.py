@@ -63,7 +63,10 @@ with open('calls.csv', 'r') as f:
                       calls_to_Bangalore += 1
 
 percent_of_calls_within_Bangalore = round((calls_to_Bangalore/calls_from_Bangalore)*100, 2) #percent of calls from land lines in Bangalore to other land lines in Bangalore
-print("The numbers called by people in Bangalore have codes:\n" + str(list(sorted(area_codes))))
+print("The numbers called by people in Bangalore have codes:")
+for codes in list(sorted(area_codes)):
+      print(codes)
+      
 print(f"{percent_of_calls_within_Bangalore} percent of calls from fixed lines in Bangalore are calls to other fixed lines in Bangalore.")
 
                 
